@@ -3,6 +3,7 @@
 # 💰 VaultPay - Smart Payment & Expense Management App
 A modern full-stack payment application with an innovative vault system that helps users organize their expenses by categorizing their money into different spending vaults.
 
+<<<<<<< HEAD
 # 🌟 Key Features
 - 🏦 Virtual Vaults: Segregate your money into different categories (Groceries, Rent, Entertainment, etc.)
 - 💸 Smart Payments: Pay from specific vaults to track spending
@@ -25,6 +26,31 @@ A modern full-stack payment application with an innovative vault system that hel
 - Authentication: JWT
 - Security: Helmet, CORS, Rate Limiting
 ## 📁 Project Structure
+=======
+🌟 Key Features
+🏦 Virtual Vaults: Segregate your money into different categories (Groceries, Rent, Entertainment, etc.)
+💸 Smart Payments: Pay from specific vaults to track spending
+📊 Expense Analytics: Visual insights into your spending patterns
+🔒 Secure: Bank-grade security with JWT authentication
+📱 Responsive: Works perfectly on mobile and desktop
+🛠️ Tech Stack
+Frontend
+Framework: Next.js 14 (App Router)
+Language: TypeScript
+Styling: Tailwind CSS
+State Management: Zustand
+HTTP Client: Axios
+Icons: Lucide React
+Backend
+Runtime: Node.js
+Framework: Express.js
+Language: TypeScript
+Database: PostgreSQL
+Authentication: JWT
+Security: Helmet, CORS, Rate Limiting
+📁 Project Structure
+```text
+>>>>>>> e1e434df88b7b3ff5d4c253756f071d0999ad1ec
 vault-payment-app/
 ├── backend/                 # Node.js + Express backend
 │   ├── src/
@@ -48,6 +74,7 @@ vault-payment-app/
 │   └── package.json
 │
 └── README.md
+```
 🚀 Getting Started
 ## Prerequisites:
 - Node.js 18+ installed
