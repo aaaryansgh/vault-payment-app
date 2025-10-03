@@ -86,25 +86,24 @@ Backend API: http://localhost:5000
 🎯 Unique Selling Point: Vault System
 Unlike traditional payment apps, VaultPay introduces a vault-based money management system:
 
-Create Vaults: Users create virtual vaults for different expense categories
-Allocate Money: Distribute their total balance across vaults
-Track Spending: Each payment is linked to a specific vault
-Budget Control: Can't overspend from a vault once depleted
-Example: User has ₹50,000
-
-Rent Vault: ₹15,000
-Groceries Vault: ₹5,000
-Entertainment Vault: ₹3,000
-Savings Vault: ₹10,000
-Unallocated: ₹17,000
+- Create Vaults: Users create virtual vaults for different expense categories
+- Allocate Money: Distribute their total balance across vaults
+- Track Spending: Each payment is linked to a specific vault
+- Budget Control: Can't overspend from a vault once depleted
+Example: User has ₹50,000:
+- Rent Vault: ₹15,000
+- Groceries Vault: ₹5,000
+- Entertainment Vault: ₹3,000
+- Savings Vault: ₹10,000
+- Unallocated: ₹17,000
 
 🔐 Security Features
-JWT-based authentication
-Password hashing with bcrypt
-Rate limiting on API endpoints
-Input validation and sanitization
-CORS protection
-Helmet security headers
+- JWT-based authentication
+- Password hashing with bcrypt
+- Rate limiting on API endpoints
+- Input validation and sanitization
+- CORS protection
+- Helmet security headers
 
 📝 API Documentation
 Coming soon...
