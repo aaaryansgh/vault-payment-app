@@ -26,6 +26,7 @@ Database: PostgreSQL
 Authentication: JWT
 Security: Helmet, CORS, Rate Limiting
 📁 Project Structure
+```text
 vault-payment-app/
 ├── backend/                 # Node.js + Express backend
 │   ├── src/
@@ -49,6 +50,7 @@ vault-payment-app/
 │   └── package.json
 │
 └── README.md
+```
 🚀 Getting Started
 Prerequisites
 Node.js 18+ installed
