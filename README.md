@@ -58,7 +58,7 @@ vault-payment-app/
 - Installation
 - Clone the repository
 ## bash
-- git clone https://github.com/YOUR_USERNAME/vault-payment-app.git
+- git clone https://github.com/aaaryansgh/vault-payment-app.git
 - cd vault-payment-app
 - Setup Backend
 - bash
