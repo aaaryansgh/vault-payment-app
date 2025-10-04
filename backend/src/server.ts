@@ -1,5 +1,6 @@
 import express from 'express';
 import helmet from 'helmet';
+import prisma from './config/database.js';
 
 const app=express();
 
@@ -22,6 +23,30 @@ app.get("/api/test",(req,res)=>{
             status:'healthy'
         }
     })
+})
+app.get("/api/db-test",async(req,res)=>{
+    try{
+        const user= await prisma.user.findFirst({
+            include:{
+                vaults:{
+                    where:{isActive:true},
+                    select:{
+                        vaultName:true,
+                        allocatedAmount:true,
+                        spentAmount:true,
+                        icon:true
+                    }
+                }
+            }
+        })
+        res.status(200).json({
+            success:true,
+            message:"DB connection is working fine",
+            data:user
+        })
+    }catch(err){
+        res.status(500).json({error:err})
+    }
 })
 
 app.use((req,res)=>{

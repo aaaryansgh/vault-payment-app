@@ -7,13 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -b",
     "start": "nodemon dist/server.js",
-    "dev": "npm run build&& npm run start"
+    "dev": "npm run build&& npm run start",
+    "prisma:studio":"npx prisma studio"
   },
-  "keywords": ["payment","fintech"],
+  "keywords": [
+    "payment",
+    "fintech"
+  ],
   "author": "Aryan",
   "license": "MIT",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^6.16.3",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -31,6 +36,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.6.2",
     "nodemon": "^3.1.10",
+    "prisma": "^6.16.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
