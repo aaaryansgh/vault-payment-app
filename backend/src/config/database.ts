@@ -17,8 +17,5 @@ export const testConnection=async()=>{
         return false;
     }
 }
-process.on('beforeExit',async()=>{
-    await prisma.$disconnect();
-})
 
 export default prisma;
