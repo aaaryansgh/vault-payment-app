@@ -15,14 +15,21 @@ export const register=async(req:Request,res:Response)=>{
 //POST /api/auth/signin
 export const login=async(req:Request,res:Response)=>{
     const {email,passwordHash}=req.body;
-    const result=await authService.Login({email,passwordHash});
-    res.cookie("token",result.tokens)
-    
-    res.status(200).json({
+    try{
+        const result=await authService.Login({email,passwordHash});
+        res.cookie("token",result.tokens)    
+        res.status(200).json({
         success:true,
         message:"User Logged in successfully",
         data:result
     })
+    }catch(err){
+        res.status(401).json({
+            success:false,
+            message:"Invalid email/password"
+        })
+    }
+    
 }
 
 

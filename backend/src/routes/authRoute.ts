@@ -12,6 +12,13 @@ router.get("/me",UserAuth,async(req,res)=>{
     //@ts-ignore
     const {user}=req;
     const users=await authService.getUserById(user.id);
+    if(users){
+        res.status(200).json({
+            success:true,
+            message:"User fetched successfully",
+            data:users
+        })
+    }
 })
 router.post("/logout",UserAuth,logout);
 
