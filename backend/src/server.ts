@@ -3,10 +3,11 @@ import express from 'express';
 import helmet from 'helmet';
 import prisma from './config/database.js';
 import authRoute from './routes/authRoute.js';
+import accountsRoute from './routes/accountsRoute.js'
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
-const app=express();
 
+const app=express();
 
 const PORT=5000;
 
@@ -14,8 +15,13 @@ app.use(cookieParser())
 app.use(helmet()); //security headers
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use('/api/auth',authRoute)
 
+//Routes
+app.use('/api/auth',authRoute)
+app.use('/api',accountsRoute)
+
+
+// testing routes
 app.get("/health",(req,res)=>{
     res.status(200).json({
         success:true,
