@@ -15,4 +15,4 @@ router.patch("/:id/set-primary",bankAccountController.setPrismaryAccount);
 router.patch("/:id/balance",bankAccountController.updateBalance);
 router.delete("/:id",bankAccountController.unlinkBankAccount);
 
-export default Router;
+export default router;

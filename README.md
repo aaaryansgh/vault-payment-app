@@ -107,8 +107,18 @@ Example: User has ₹50,000:
 - Helmet security headers
 
 📝 API Documentation
-Coming soon...
-
+- POST   /api/auth/signup            - Register new user
+- POST   /api/auth/login             - Login
+- GET    /api/auth/me                - Get current user
+- POST   /api/auth/logout            - Logout
+- POST   /api/bank-accounts                 - Link bank account
+- GET    /api/bank-accounts                 - Get all accounts
+- GET    /api/bank-accounts/primary         - Get primary account
+- GET    /api/bank-accounts/:id             - Get specific account
+- GET    /api/bank-accounts/:id/summary     - Get account summary
+- PATCH  /api/bank-accounts/:id/set-primary - Set as primary
+- PATCH  /api/bank-accounts/:id/balance     - Update balance
+- DELETE /api/bank-accounts/:id             - Unlink account
 🤝 Contributing
 This is a personal portfolio project, but suggestions are welcome!
 

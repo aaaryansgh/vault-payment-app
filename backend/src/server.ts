@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import prisma from './config/database.js';
 import authRoute from './routes/authRoute.js';
 import accountsRoute from './routes/accountsRoute.js'
+import vaultRoute from "./routes/vaultRoute.js"
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 
@@ -19,7 +20,7 @@ app.use(express.urlencoded({extended:true}));
 //Routes
 app.use('/api/auth',authRoute)
 app.use('/api',accountsRoute)
-
+app.use('/api',vaultRoute)
 
 // testing routes
 app.get("/health",(req,res)=>{

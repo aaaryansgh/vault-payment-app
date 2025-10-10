@@ -7,7 +7,8 @@ export const linkBankAccount=async(req:Request,res:Response)=>{
     //@ts-ignore
     const {user}=req;
     const {accountNumber,ifscCode,bankName,accountHolderName,initialBalance}=req.body;
-    const account= await bankAccountService.linkBankAccount({
+    try{
+        const account= await bankAccountService.linkBankAccount({
         userId:user.id,
         accountNumber,
         ifscCode,
@@ -20,6 +21,11 @@ export const linkBankAccount=async(req:Request,res:Response)=>{
         message:"Bank account linked successfully",
         data:{account}
     })
+
+    }catch(err){
+        res.status(500).json({message:err})
+    }
+    
 }
 
 // get /api/bank-accounts
