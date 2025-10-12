@@ -34,7 +34,7 @@ export const createVault=async(req:Request,res:Response)=>{
 export const getUserVaults=async(req:Request,res:Response)=>{
     //@ts-ignore
     const {user}=req;
-    const {bankAccountId}=req.query;
+    const {bankAccountId}=req.params;
     const vaults=await vaultService.getUserVaults(user.id,bankAccountId as string);
     res.status(200).json({success:true,data:{vaults}})
 }
@@ -45,7 +45,7 @@ export const getVaultById=async(req:Request,res:Response)=>{
     //@ts-ignore
     const {user}=req;
     const{id}=req.params;
-    const vault=await vaultService.getVaultId(id as string,user.id)
+    const vault=await vaultService.getVaultId(user.id,id as string)
     res.status(200).json({success:true,data:{vault}})
 }
  // update vault

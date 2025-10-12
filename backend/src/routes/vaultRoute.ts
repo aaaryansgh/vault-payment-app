@@ -8,7 +8,7 @@ const router=Router();
 router.use(UserAuth);
 
 router.post("/create-vault",vaultController.createVault);
-router.get("/user-vaults",vaultController.getUserVaults);
+router.get("/user-vaults/:bankAccountId",vaultController.getUserVaults);
 router.get("/vault/:id",vaultController.getVaultById);
 router.get("/vault/summary/:bankAccountId",vaultController.getVaultSummary);
 router.patch("/update/:id",vaultController.updateVault);

@@ -2,11 +2,15 @@ dotenv.config();
 import express from 'express';
 import helmet from 'helmet';
 import prisma from './config/database.js';
-import authRoute from './routes/authRoute.js';
-import accountsRoute from './routes/accountsRoute.js'
-import vaultRoute from "./routes/vaultRoute.js"
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+
+import authRoute from './routes/authRoute.js';
+import accountsRoute from './routes/accountsRoute.js'
+import vaultRoute from "./routes/vaultRoute.js";
+import paymentRoute from "./routes/paymentRoute.js";
+
+
 
 const app=express();
 
@@ -21,6 +25,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/api/auth',authRoute)
 app.use('/api',accountsRoute)
 app.use('/api',vaultRoute)
+app.use("/api",paymentRoute)
 
 // testing routes
 app.get("/health",(req,res)=>{
