@@ -15,7 +15,7 @@ interface GetTransactionsOption{
     vaultId:string;
     status?:string;
     startDate?:Date;
-    endData?:Date;
+    endDate?:Date;
     limit?:number;
     offset?:number;
 }
@@ -24,9 +24,10 @@ interface GetTransactionsOption{
 // In production,,this would call actual payment gateway APIs
 
 const mockPaymentGateway=async(amount:number):Promise<{success:boolean;gatewayTransactionId:string;status:string}>=>{
-    await new Promise(resolve=>setTimeout(resolve,Math.random()*1500+500));
+    await new Promise(resolve=>setTimeout(resolve,Math.random()*2000+500));
     // 95% success rate for simulation
     const success=Math.random()>0.05;
+    
     return{
         success,
         gatewayTransactionId:`GW-${Date.now()}-${Math.random().toString(36).substring(7)}`,
@@ -117,7 +118,7 @@ export const makePayment=async(data:MakePaymentData)=>{
 }
 
 export const getTransactions=async(options:GetTransactionsOption)=>{
-    const{userId,vaultId,status,startDate,endData,limit=50,offset=0}=options;
+    const{userId,vaultId,status,startDate,endDate,limit=50,offset=0}=options;
      const where: any = { userId };
 
   if (vaultId) {
@@ -128,10 +129,15 @@ export const getTransactions=async(options:GetTransactionsOption)=>{
     where.status = status;
   }
 
-  if (startDate || endData) {
+  if (startDate || endDate) {
     where.createdAt = {};
-    if (startDate) where.createdAt.gte = startDate;
-    if (endData) where.createdAt.lte = endData;
+     if (startDate && !isNaN(startDate.getTime())) {
+      where.createdAt.gte = startDate;
+    }
+    
+    if (endDate && !isNaN(endDate.getTime())) {
+      where.createdAt.lte = endDate;
+    }
   }
   const [transactions, total] = await Promise.all([
     prisma.transactions.findMany({
@@ -259,10 +265,11 @@ export const getVaultSpendingAnalytics = async (vaultId: string, userId: string)
   };
 };
 
-export const getUserSpendingSummary = async (userId: string) => {
+export const getUserSpendingSummary = async (userId: string,vaultId:string) => {
   // Get all active vaults
   const vaults = await prisma.vault.findMany({
     where: {
+      id:vaultId,
       userId,
       isActive: true
     },

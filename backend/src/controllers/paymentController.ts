@@ -35,7 +35,7 @@ export const getTransactions=async(req:Request,res:Response)=>{
         vaultId:vaultId as string,
         status: status as string,
         startDate:new Date(startDate as string),
-        endData:new Date(endData as string),
+        endDate:new Date(endData as string),
         limit:parseInt(limit as string),
         offset:parseInt(offset as string)
     });
@@ -67,7 +67,8 @@ export const getVaultAnalytics=async(req:Request,res:Response)=>{
 export const getUserSpendingSummary=async(req:Request,res:Response)=>{
     //@ts-ignore
     const {user}=req;
-    const summary=await paymentService.getUserSpendingSummary(user.id);
+    const {vaultId}=req.params
+    const summary=await paymentService.getUserSpendingSummary(user.id,vaultId as string);
     res.status(200).json({
         success:true,
         data:summary

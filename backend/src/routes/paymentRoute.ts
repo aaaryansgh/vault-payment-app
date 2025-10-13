@@ -9,7 +9,7 @@ router.use(UserAuth);
 
 router.post("/makePayment",paymentController.makePayment);
 router.get("/transactions",paymentController.getTransactions);
-router.get("/transactions/:transactionId",paymentController.getTransactionById);
-router.get("/summary",paymentController.getUserSpendingSummary);
+router.get("/transaction/:transactionId",paymentController.getTransactionById);
+router.get("/summary/:vaultId",paymentController.getUserSpendingSummary);
 router.get("/analytics/vaults/:vaultId",paymentController.getVaultAnalytics);
 export default router;
