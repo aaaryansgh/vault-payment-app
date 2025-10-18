@@ -62,7 +62,7 @@ export const Login=async(data:LoginData)=>{
     if(!isPasswordValid)throw new Error("Invalid credentials");
     if(!user.isActive)throw new Error("User is not active");
     const tokens=generateTokens({userId:user.id,email:user.email})
-    return {tokens}
+    return {user,tokens}
 }
 export const generateTokens=(payload:TokenPayload)=>{
     const genToken=jwt.sign(payload,process.env.JWT_SECRET!,{expiresIn:'7d'});

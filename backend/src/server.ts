@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import prisma from './config/database.js';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
-
+import cors from 'cors';
 import authRoute from './routes/authRoute.js';
 import accountsRoute from './routes/accountsRoute.js'
 import vaultRoute from "./routes/vaultRoute.js";
@@ -12,10 +12,16 @@ import paymentRoute from "./routes/paymentRoute.js";
 
 
 
+
 const app=express();
 
 const PORT=5000;
 
+
+app.use(cors({
+  origin:'http://localhost:5173',
+  credentials: true
+}));
 app.use(cookieParser())
 app.use(helmet()); //security headers
 app.use(express.json());
