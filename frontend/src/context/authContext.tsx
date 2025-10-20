@@ -37,6 +37,7 @@ export function AuthProvider({children}:{children:React.ReactNode}){
         try{
             const response=await authAPI.getMe();
             const {user}=response.data;
+            console.log(user);
             setUser(user);
         }catch(err){
             console.log("Auth check failed:",err);
@@ -44,11 +45,13 @@ export function AuthProvider({children}:{children:React.ReactNode}){
             setLoading(false);
         }
     }
+    
     const login=async(email:string,passwordHash:string)=>{
         try{
             const response=await authAPI.login({email,passwordHash});
             const {user}=response.data;
             setUser(user);
+            console.log(user);
             navigate("/dashboard")
         }catch(err){
             console.log(err);

@@ -16,7 +16,7 @@ router.get("/me",UserAuth,async(req,res)=>{
         res.status(200).json({
             success:true,
             message:"User fetched successfully",
-            data:users
+            data:{user:users}   //earlier I was doing data:user causing problem in frontend, as frontend was expecting data.user (singular)
         })
     }
 })

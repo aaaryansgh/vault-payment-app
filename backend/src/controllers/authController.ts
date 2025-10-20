@@ -6,6 +6,12 @@ import type{ Request,Response } from "express";
 export const register=async(req:Request,res:Response)=>{
     const {email,passwordHash,fullname,phone,pinHash}=req.body;
     const result=await authService.register({email,passwordHash,fullname,phone,pinHash});
+    res.cookie("token",result.tokens,{
+        httpOnly:true,
+        sameSite:"lax",
+        maxAge:7*24*60*60*1000, // 7 days
+        path:"/"
+    })
     res.status(201).json({
         success:true,
         message:"User registered successfully",
@@ -17,7 +23,12 @@ export const login=async(req:Request,res:Response)=>{
     const {email,passwordHash}=req.body;
     try{
         const result=await authService.Login({email,passwordHash});
-        res.cookie("token",result.tokens)    
+        res.cookie("token",result.tokens,{
+            httpOnly:true,
+            sameSite:"lax",
+            maxAge:7*24*60*60*1000, // 7 days
+            path:"/"
+        })    
         res.status(200).json({
         success:true,
         message:"User Logged in successfully",
@@ -33,7 +44,12 @@ export const login=async(req:Request,res:Response)=>{
 }
 
 export const logout=async(req:Request,res:Response)=>{
-    res.cookie("token",null,{expires:new Date(Date.now())})
+    res.cookie("token",null,{
+        expires:new Date(Date.now()),
+        httpOnly:true,
+        sameSite:"lax",
+        path:"/"
+    })
     res.status(200).json({
         success:true,
         message:"User logged out successfully"
