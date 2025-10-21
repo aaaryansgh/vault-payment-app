@@ -67,8 +67,7 @@ export const getVaultAnalytics=async(req:Request,res:Response)=>{
 export const getUserSpendingSummary=async(req:Request,res:Response)=>{
     //@ts-ignore
     const {user}=req;
-    const {vaultId}=req.params
-    const summary=await paymentService.getUserSpendingSummary(user.id,vaultId as string);
+    const summary=await paymentService.getUserSpendingSummary(user.id);
     res.status(200).json({
         success:true,
         data:summary

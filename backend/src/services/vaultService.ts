@@ -80,9 +80,9 @@ export const createVault=async(data:CreateVaultData)=>{
 
 //get all vaults for a user
 
-export const getUserVaults=async(userId:string,bankAccountId:string)=>{
+export const getUserVaults=async(userId:string)=>{
     const vaults=await prisma.vault.findMany({
-        where:{userId,bankAccountId,isActive:true},
+        where:{userId,isActive:true},
         select:{
             id:true,
             vaultName:true,
@@ -96,7 +96,6 @@ export const getUserVaults=async(userId:string,bankAccountId:string)=>{
             updatedAt:true,
             bankAccount:{
                 select:{
-                    id:true,
                     accountNumber:true,
                     bankName:true
                 }

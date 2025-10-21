@@ -29,11 +29,11 @@ export const authAPI={
 
 export const bankAccountAPI={
     getAll:async()=>{
-        const response=await axios.get(`${API_URL}/user-accounts`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/bank-accounts/user-accounts`,{withCredentials:true})
         return response.data;
     },
     getPrimary:async()=>{
-        const response=await axios.get(`${API_URL}/primary`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/bank-accounts/primary`,{withCredentials:true})
         return response.data;
     },
     linkAccount:async(data:{
@@ -43,26 +43,26 @@ export const bankAccountAPI={
         accountHolderName:string;
         initialBalance:number;
     })=>{
-        const response=await axios.post(`${API_URL}/link-account`,data,{withCredentials:true});
+        const response=await axios.post(`${API_URL}/bank-accounts/link-account`,data,{withCredentials:true});
         return response.data;
     },
     getSummary:async(id:string)=>{
-        const response=await axios.get(`${API_URL}/${id}/summary`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/bank-accounts/${id}/summary`,{withCredentials:true})
         return response;
     },
     setPrimary:async(id:string)=>{
-        const response=await axios.get(`${API_URL}/${id}/set-primary`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/bank-accounts/${id}/set-primary`,{withCredentials:true})
         return response.data;
     }
 }
 
 export const vaultAPI={
-    getALL:async(bankAccountId:string)=>{
-        const response=await axios.get(`${API_URL}/user-vaults/${bankAccountId}`,{withCredentials:true})
+    getALL:async()=>{
+        const response=await axios.get(`${API_URL}/vaults/user-vaults/`,{withCredentials:true})
         return response.data;
     },
     getById:async(id:string)=>{
-        const response=await axios.get(`${API_URL}/vault/${id}`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/vaults/${id}`,{withCredentials:true})
         return response.data;
     },
     create:async(data:{
@@ -73,19 +73,19 @@ export const vaultAPI={
         icon:string;
         budgetPeriod:string;
     })=>{
-        const response=await axios.post(`${API_URL}/create-vault`,data,{withCredentials:true})
+        const response=await axios.post(`${API_URL}/vaults/create-vault`,data,{withCredentials:true})
         return response.data;
     },
     update:async(id:string,data:any)=>{
-        const response=await axios.patch(`${API_URL}/update/${id}`,data,{withCredentials:true})
+        const response=await axios.patch(`${API_URL}/vaults/update/${id}`,data,{withCredentials:true})
         return response.data;
     },
     delete:async(id:string)=>{
-        const response=await axios.delete(`${API_URL}/delete/${id}`,{withCredentials:true})
+        const response=await axios.delete(`${API_URL}/vaults/delete/${id}`,{withCredentials:true})
         return response.data;
     },
     getSummary:async(bankAccountId:string)=>{
-        const response=await axios.get(`${API_URL}/vault/summary/${bankAccountId}`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/vaults/summary/${bankAccountId}`,{withCredentials:true})
         return response.data;
     }
 }
@@ -98,19 +98,19 @@ export const paymentAPI={
         recipientPhone:string;
         recipientUpi:string;
     })=>{
-        const response=await axios.post(`${API_URL}/makePayment`,data,{withCredentials:true})
+        const response=await axios.post(`${API_URL}/payments/makePayment`,data,{withCredentials:true})
         return response.data;
     },
     getTransaction:async(transactionId:string)=>{
-        const response=await axios.get(`${API_URL}/transaction/${transactionId}`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/payments/transaction/${transactionId}`,{withCredentials:true})
         return response.data;
     },
-    getSpendingSummary:async(vaultId:string)=>{
-        const response=await axios.get(`${API_URL}/summary/${vaultId}`,{withCredentials:true})
+    getSpendingSummary:async()=>{
+        const response=await axios.get(`${API_URL}/payments/spending-summary/`,{withCredentials:true})
         return response.data;
     },
     getVaultAnalytics:async(vaultId:string)=>{
-        const response=await axios.get(`${API_URL}/analytics/vaults/${vaultId}`,{withCredentials:true})
+        const response=await axios.get(`${API_URL}/payments/analytics/vaults/${vaultId}`,{withCredentials:true})
         return response.data;
     }
 }

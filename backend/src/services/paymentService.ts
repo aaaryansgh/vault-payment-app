@@ -265,11 +265,10 @@ export const getVaultSpendingAnalytics = async (vaultId: string, userId: string)
   };
 };
 
-export const getUserSpendingSummary = async (userId: string,vaultId:string) => {
+export const getUserSpendingSummary = async (userId: string) => {
   // Get all active vaults
   const vaults = await prisma.vault.findMany({
     where: {
-      id:vaultId,
       userId,
       isActive: true
     },

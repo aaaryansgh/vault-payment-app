@@ -29,9 +29,9 @@ app.use(express.urlencoded({extended:true}));
 
 //Routes
 app.use('/api/auth',authRoute)
-app.use('/api',accountsRoute)
-app.use('/api',vaultRoute)
-app.use("/api",paymentRoute)
+app.use('/api/bank-accounts',accountsRoute)
+app.use('/api/vaults',vaultRoute)
+app.use("/api/payments",paymentRoute)
 
 // testing routes
 app.get("/health",(req,res)=>{
