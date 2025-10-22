@@ -96,6 +96,7 @@ export const getUserVaults=async(userId:string)=>{
             updatedAt:true,
             bankAccount:{
                 select:{
+                    id:true,
                     accountNumber:true,
                     bankName:true
                 }

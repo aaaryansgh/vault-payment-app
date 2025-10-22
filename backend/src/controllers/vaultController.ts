@@ -66,7 +66,7 @@ export const deleteVault=async(req:Request,res:Response)=>{
     //@ts-ignore
     const {user}=req;
     const {id}=req.params;
-    const result=await vaultService.deleteVault(id as string,user.id);
+    const result=await vaultService.deleteVault(user.id,id as string);
     res.status(200).json({
         success:true,
         message:result.message,
