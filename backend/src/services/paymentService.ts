@@ -47,18 +47,34 @@ export const makePayment=async(data:MakePaymentData)=>{
     recipientId}=data;
     if(amount<=0)throw new Error("Amount must be greater than 0");
     if(amount>100000)throw new Error("Payment amount cannot exceed Rs-1,00,000");
+    
+    // First, verify vault and balance BEFORE starting transaction
+    const vaultCheck = await prisma.vault.findFirst({
+        where:{id:vaultId,userId,isActive:true},
+        include:{bankAccount:true}
+    });
+    
+    if(!vaultCheck)throw new Error("Vault not found");
+    const allocated=Number(vaultCheck.allocatedAmount);
+    const spent=Number(vaultCheck.spentAmount);
+    const rem=allocated-spent;
+    if(amount>rem)throw new Error("Insufficient vault balance");
+    
+    // Process payment through mock gateway OUTSIDE transaction
+    const gatewayResponse=await mockPaymentGateway(amount);
+    
+    // Now perform database updates in transaction with increased timeout
     return await prisma.$transaction(async(txn)=>{
+        // Re-fetch vault inside transaction to ensure consistency
         const vault=await txn.vault.findFirst({
             where:{id:vaultId,userId,isActive:true},
             include:{bankAccount:true}
         })
         if(!vault)throw new Error("Vault not found");
-        const allocated=Number(vault.allocatedAmount);
-        const spent=Number(vault.spentAmount);
-        const rem=allocated-spent;
-        if(amount>rem)throw new Error("Insufficient vault balance");
-        //process payment through mock gateway
-        const gatewayResponse=await mockPaymentGateway(amount);
+        
+        // Double-check balance hasn't changed
+        const currentRem = Number(vault.allocatedAmount) - Number(vault.spentAmount);
+        if(amount>currentRem)throw new Error("Insufficient vault balance");
         // Update vault spent amount
         await txn.vault.update({
             where:{id:vaultId},
@@ -114,6 +130,9 @@ export const makePayment=async(data:MakePaymentData)=>{
                 usagePercentage:((spent+amount)/allocated)*100
             }
         }
+    }, {
+        maxWait: 10000, // Maximum time to wait for a transaction slot (10s)
+        timeout: 10000, // Maximum time the transaction can run (10s)
     })
 }
 
