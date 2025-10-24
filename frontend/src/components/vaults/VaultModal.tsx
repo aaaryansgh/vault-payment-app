@@ -137,8 +137,8 @@ export default function VaultModal({
 
           {/* Unallocated Balance Info */}
           {!vault && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-sm text-blue-800">
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <p className="text-sm text-red-900">
                 <span className="font-semibold">Available:</span> ₹
                 {unallocatedBalance.toLocaleString()}
               </p>
@@ -156,7 +156,7 @@ export default function VaultModal({
               onChange={(e) =>
                 setFormData({ ...formData, vaultName: e.target.value })
               }
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none"
               placeholder="e.g., Monthly Groceries"
               required
             />
@@ -171,7 +171,7 @@ export default function VaultModal({
               <select
                 value={formData.vaultType}
                 onChange={(e) => handleVaultTypeChange(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none"
               >
                 {VAULT_TYPES.map((type) => (
                   <option key={type.value} value={type.value}>
@@ -193,7 +193,7 @@ export default function VaultModal({
               onChange={(e) =>
                 setFormData({ ...formData, allocatedAmount: e.target.value })
               }
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none"
               placeholder="5000"
               min="1"
               step="0.01"
@@ -216,7 +216,7 @@ export default function VaultModal({
               onChange={(e) =>
                 setFormData({ ...formData, budgetPeriod: e.target.value })
               }
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none"
             >
               {BUDGET_PERIODS.map((period) => (
                 <option key={period.value} value={period.value}>
@@ -264,7 +264,7 @@ export default function VaultModal({
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-3 bg-red-900 text-white rounded-lg font-semibold hover:bg-red-950 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>

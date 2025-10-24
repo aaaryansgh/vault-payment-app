@@ -118,14 +118,14 @@ export default function PaymentForm({ vaults, onSubmit, loading }: PaymentFormPr
 
       {/* Vault Balance Display */}
       {selectedVault && (
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 border border-blue-200">
+        <div className="bg-gradient-to-r from-red-900 to-red-950 rounded-lg p-4 border border-blue-200">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-700">Available Balance</span>
-            <span className="text-2xl font-bold text-gray-900">
+            <span className="text-sm text-white">Available Balance</span>
+            <span className="text-2xl font-bold text-white">
               ₹{selectedVault.remainingAmount.toLocaleString()}
             </span>
           </div>
-          <div className="flex items-center justify-between text-xs text-gray-600">
+          <div className="flex items-center justify-between text-xs text-white">
             <span>Allocated: ₹{selectedVault.allocatedAmount.toLocaleString()}</span>
             <span>Spent: ₹{selectedVault.spentAmount.toLocaleString()}</span>
           </div>
@@ -149,7 +149,7 @@ export default function PaymentForm({ vaults, onSubmit, loading }: PaymentFormPr
           type="number"
           value={formData.amount}
           onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-lg"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none text-lg"
           placeholder="500"
           min="1"
           step="0.01"
@@ -174,7 +174,7 @@ export default function PaymentForm({ vaults, onSubmit, loading }: PaymentFormPr
           type="tel"
           value={formData.recipientPhone}
           onChange={(e) => setFormData({ ...formData, recipientPhone: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none"
           placeholder="+919876543210"
           disabled={loading}
         />
@@ -190,7 +190,7 @@ export default function PaymentForm({ vaults, onSubmit, loading }: PaymentFormPr
           type="text"
           value={formData.recipientUpi}
           onChange={(e) => setFormData({ ...formData, recipientUpi: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none"
           placeholder="user@paytm"
           disabled={loading}
         />
@@ -206,7 +206,7 @@ export default function PaymentForm({ vaults, onSubmit, loading }: PaymentFormPr
         <textarea
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none resize-none"
           placeholder="What's this payment for?"
           rows={3}
           disabled={loading}
@@ -218,7 +218,7 @@ export default function PaymentForm({ vaults, onSubmit, loading }: PaymentFormPr
       <button
         type="submit"
         disabled={loading || !selectedVault}
-        className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+        className="w-full bg-red-900 text-white py-4 rounded-lg font-semibold text-lg hover:bg-red-950 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
       >
         {loading ? 'Processing Payment...' : `Pay ₹${formData.amount || '0'}`}
       </button>

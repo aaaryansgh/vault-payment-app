@@ -35,15 +35,7 @@ export default function PaymentPage() {
       const response = await vaultAPI.getALL();
       
       if (response.success && response.data) {
-        // Filter only active vaults with remaining balance
-        // const activeVaults = response.data.filter(
-        //   (vault: Vault) => vault.isActive && vault.remainingAmount > 0
-        // );
         setVaults(response.data.vaults);
-
-        // if (activeVaults.length === 0) {
-        //   setError('No active vaults with available balance. Please create a vault first.');
-        // }
       } else {
         setError('Failed to load vaults');
       }

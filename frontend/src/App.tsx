@@ -7,6 +7,7 @@ import DashboardPage from "./pages/DashboardPage";
 import VaultPage from "./pages/VaultPage";
 import PaymentPage from "./pages/PaymentPage";
 import TransactionsPage from "./pages/TransactionPage";
+import BankAccountLinkingPage from "./pages/BankAccountLinkingPage";
 import Loader from "./utils/loader";
 
 
@@ -38,6 +39,7 @@ function App() {
       <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
       <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
       <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>} />
+      <Route path="/link-bank-account" element={<ProtectedRoute><BankAccountLinkingPage/></ProtectedRoute>} />
       <Route path="/vaults" element={<ProtectedRoute><VaultPage/></ProtectedRoute>} />
       <Route path="/payments" element={<ProtectedRoute><PaymentPage/></ProtectedRoute>} />
       <Route path="/transactions" element={<ProtectedRoute><TransactionsPage/></ProtectedRoute>} />

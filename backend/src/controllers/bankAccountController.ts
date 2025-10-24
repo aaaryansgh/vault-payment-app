@@ -114,3 +114,17 @@ export const getAccountSummary = async (req: Request, res: Response) => {
     data: summary
   });
 };
+
+export const updateBankAccount = async (req: Request, res: Response) => {
+    //@ts-ignore
+  const {user}=req;
+  const { id } = req.params;
+  const {accountHolderName, bankName} = req.body;
+  //@ts-ignore
+  const account = await bankAccountService.updateBankAccount(id, user.id, {accountHolderName, bankName});
+  res.status(200).json({
+    success: true,
+    message: "Account updated successfully",
+    data: {account}
+  });
+};

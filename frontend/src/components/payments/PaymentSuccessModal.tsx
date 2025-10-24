@@ -126,7 +126,7 @@ export default function PaymentSuccessModal({
           )}
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="flex-1 px-4 py-3 bg-red-900 text-white rounded-lg font-semibold hover:bg-red-950 transition"
           >
             Done
           </button>

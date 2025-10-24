@@ -62,6 +62,7 @@ export function AuthProvider({children}:{children:React.ReactNode}){
             const response=await authAPI.register(data);
             const {user}=response.data;
             setUser(user);
+            navigate("/link-bank-account");
         }catch(err){
             console.log(err);
         }

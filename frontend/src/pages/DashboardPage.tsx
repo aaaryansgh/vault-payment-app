@@ -4,6 +4,7 @@ import { paymentAPI, vaultAPI } from "../lib/api"
 import { ArrowUpRight, CreditCard, TrendingUp, Wallet } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "../components/layout/Header";
+import Loader from "../utils/loader";
 
 export default function DashboardPage(){
     const [loading,setLoading]=useState(true);
@@ -27,14 +28,7 @@ export default function DashboardPage(){
         }
     }
     if(loading){
-        return(
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                    <p className="mt-4 text-gray-600"></p>
-                </div>
-            </div>
-        )
+        <Loader />
     }
     return (
         <div className="min-h-screen bg-gray-50">
@@ -46,6 +40,7 @@ export default function DashboardPage(){
                     <div className="flex gap-8">
                         <Link className="py-4 border-b-2 border-red-900 text-red-900 font-medium" to="/dashboard">Dashboard</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/vaults">Vaults</Link>
+                        <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/link-bank-account">Bank Account</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/payments">Payments</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/transactions">Transactions</Link>
                     </div>
@@ -55,27 +50,27 @@ export default function DashboardPage(){
             <main>
                 {/*summary cards*/}
                 <div className="grid grid-cols-1 mx-2 mt-2 md:grid-cols-3 gap-6 mb-8">
-                    <div className="bg-white p-6 shadow-sm hover:shadow-2xl hover:shadow-blue-100">
+                    <div className="bg-blue-100 p-6 shadow-sm hover:shadow-2xl hover:shadow-blue-100">
                         <div className="flex items-center justify-between mb-4">
-                            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <div className="w-12 h-12 bg-blue-300 rounded-lg flex items-center justify-center">
                                 <Wallet className="w-6 h-6 text-blue-600" />
                             </div>
                             <span className="text-sm text-gray-500">Total Allocated</span>
                         </div>
                         <p className="text-3xl font-bold text-gray-900">{summary?.summary.totalAllocated.toLocaleString()||"0"}</p>
                     </div>
-                    <div className="bg-white p-6 shadow-sm hover:shadow-2xl hover:shadow-green-100">
+                    <div className="bg-green-100 p-6 shadow-sm hover:shadow-2xl hover:shadow-green-100">
                         <div className="flex items-center justify-between mb-4">
-                            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <div className="w-12 h-12 bg-green-300 rounded-lg flex items-center justify-center">
                                 <CreditCard />
                             </div>
                             <span className="text-sm text-gray-500">Total spent</span>
                         </div>
                         <p className="text-3xl font-bold text-gray-900">{summary?.summary.totalSpent.toLocaleString()||"0"}</p>
                     </div>
-                    <div className="bg-white p-6 shadow-sm hover:shadow-2xl hover:shadow-purple-100">
+                    <div className="bg-purple-100 p-6 shadow-sm hover:shadow-2xl hover:shadow-purple-100">
                         <div className="flex items-center justify-between mb-4">
-                            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <div className="w-12 h-12 bg-purple-300 rounded-lg flex items-center justify-center">
                                 <TrendingUp className="w-6 h-6 text-purple-600" />
                             </div>
                             <span className="text-sm text-gray-500">Remaining</span>
@@ -93,7 +88,7 @@ export default function DashboardPage(){
                         <div className="text-center py-12">
                             <Wallet className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                             <p className="text-gray-600 mb-4">No vaults created yet</p>
-                            <Link className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700" to="/vaults">Created your first vault</Link>
+                            <Link className="inline-block bg-red-900 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-950" to="/vaults">Created your first vault</Link>
                         </div>
                     ):(
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

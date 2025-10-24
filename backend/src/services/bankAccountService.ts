@@ -156,6 +156,33 @@ export const updateaccountBalance=async(data:UpdateBalanceData)=>{
     return updatedAccount;
 }
 
+// Update account details
+export const updateBankAccount=async(accountId:string,userId:string,data:{accountHolderName?:string;bankName?:string})=>{
+    const account=await prisma.bankAccount.findFirst({
+        where:{id:accountId,userId}
+    })
+    if(!account){throw new Error("Account not found")};
+    const updatedAccount=await prisma.bankAccount.update({
+        where:{id:accountId},
+        data:{
+            accountHolderName:data.accountHolderName||account.accountHolderName,
+            bankName:data.bankName||account.bankName
+        },
+        select:{
+            id:true,
+            accountNumber:true,
+            ifscCode:true,
+            accountHolderName:true,
+            bankName:true,
+            balance:true,
+            isPrimary:true,
+            isVerified:true,
+            createdAt:true,
+        }
+    })
+    return updatedAccount;
+}
+
 // delete a bank account
 
 export const deleteBankAccount=async(accountId:string,userId:string)=>{

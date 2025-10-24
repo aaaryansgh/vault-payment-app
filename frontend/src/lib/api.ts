@@ -51,7 +51,22 @@ export const bankAccountAPI={
         return response;
     },
     setPrimary:async(id:string)=>{
-        const response=await axios.get(`${API_URL}/bank-accounts/${id}/set-primary`,{withCredentials:true})
+        const response=await axios.patch(`${API_URL}/bank-accounts/${id}/set-primary`,{},{withCredentials:true})
+        return response.data;
+    },
+    updateAccount:async(id:string,data:{
+        accountHolderName?:string;
+        bankName?:string;
+    })=>{
+        const response=await axios.patch(`${API_URL}/bank-accounts/${id}`,data,{withCredentials:true})
+        return response.data;
+    },
+    deleteAccount:async(id:string)=>{
+        const response=await axios.delete(`${API_URL}/bank-accounts/${id}`,{withCredentials:true})
+        return response.data;
+    },
+    updateBalance:async(id:string,amount:number)=>{
+        const response=await axios.patch(`${API_URL}/bank-accounts/${id}/balance`,{amount},{withCredentials:true})
         return response.data;
     }
 }

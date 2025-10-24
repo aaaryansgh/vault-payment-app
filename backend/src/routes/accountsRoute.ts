@@ -13,6 +13,7 @@ router.get("/:id",bankAccountController.getBankAccountById);
 router.get("/:id/summary",bankAccountController.getAccountSummary);
 router.patch("/:id/set-primary",bankAccountController.setPrismaryAccount);
 router.patch("/:id/balance",bankAccountController.updateBalance);
+router.patch("/:id",bankAccountController.updateBankAccount);
 router.delete("/:id",bankAccountController.unlinkBankAccount);
 
 export default router;

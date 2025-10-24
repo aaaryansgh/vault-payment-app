@@ -75,14 +75,14 @@ export default function PaymentConfirmModal({
             </div>
 
             {/* Balance Preview */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+            <div className="bg-red-50 border border-red-200 rounded-lg p-3">
               <div className="flex justify-between text-sm mb-2">
-                <span className="text-blue-800">After payment:</span>
-                <span className="font-semibold text-blue-900">
+                <span className="text-red-900">After payment:</span>
+                <span className="font-semibold text-red-900">
                   ₹{newBalance.toLocaleString()}
                 </span>
               </div>
-              <div className="w-full bg-blue-200 rounded-full h-2">
+              <div className="w-full bg-red-200 rounded-full h-2">
                 <div
                   className="h-2 rounded-full transition-all"
                   style={{
@@ -90,7 +90,7 @@ export default function PaymentConfirmModal({
                   }}
                 />
               </div>
-              <p className="text-xs text-blue-700 mt-1">
+              <p className="text-xs text-red-900 mt-1">
                 {newUsage.toFixed(1)}% used
               </p>
             </div>
@@ -119,7 +119,7 @@ export default function PaymentConfirmModal({
           <button
             onClick={onConfirm}
             disabled={loading}
-            className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
+            className="flex-1 px-4 py-3 bg-red-900 text-white rounded-lg font-semibold hover:bg-red-950 transition disabled:opacity-50 flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
