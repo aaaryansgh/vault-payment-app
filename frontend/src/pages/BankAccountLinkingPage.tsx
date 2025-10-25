@@ -91,7 +91,15 @@ export default function BankAccountLinkingPage() {
         initialBalance: 0,
       });
       setShowAddForm(false);
-      fetchAccounts();
+      
+      // If this is the first account, redirect to dashboard after a short delay
+      if (accounts.length === 0) {
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1500);
+      } else {
+        fetchAccounts();
+      }
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to link account');
     } finally {

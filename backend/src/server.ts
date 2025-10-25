@@ -1,7 +1,7 @@
 dotenv.config();
 import express from 'express';
 import helmet from 'helmet';
-import prisma from './config/database.js';
+import prisma, { testConnection } from './config/database.js';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -82,8 +82,10 @@ app.use((req,res)=>{
         message:"route not found"
     })
 })
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log('🚀 Server is running!');
   console.log(`📡 Port: ${PORT}`);
   console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
+  console.log('🔌 Testing database connection...');
+  await testConnection();
 });

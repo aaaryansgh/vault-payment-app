@@ -39,7 +39,7 @@ vault-payment-app/
 │   │   └── server.ts       # Entry point
 │   └── package.json
 │
-├── frontend/               # Next.js frontend
+├── frontend/               # react.js frontend
 │   ├── src/
 │   │   ├── app/           # App router pages
 │   │   ├── components/    # React components

@@ -37,7 +37,7 @@ export const login=async(req:Request,res:Response)=>{
     }catch(err){
         res.status(401).json({
             success:false,
-            message:"Invalid email/password"
+            message:err
         })
     }
     
