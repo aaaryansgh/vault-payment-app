@@ -73,3 +73,111 @@ export const getUserSpendingSummary=async(req:Request,res:Response)=>{
         data:summary
     })
 }
+
+export const getCategorySpending = async (req: Request, res: Response) => {
+    //@ts-ignore
+    const { user } = req;
+    const { startDate, endDate } = req.query;
+
+    try {
+        const options = {
+            userId: user.id,
+            startDate: startDate ? new Date(startDate as string) : undefined,
+            endDate: endDate ? new Date(endDate as string) : undefined,
+        };
+         // Validate dates
+        if (options.startDate && isNaN(options.startDate.getTime())) {
+            throw new Error("Invalid startDate parameter");
+        }
+        if (options.endDate && isNaN(options.endDate.getTime())) {
+            throw new Error("Invalid endDate parameter");
+        }
+        //@ts-ignore
+        const result = await paymentService.getSpendingByCategory(options);
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    } catch (error: any) {
+        console.error("Get Category Spending Error:", error);
+        res.status(500).json({
+            success: false,
+            message: error.message || 'Failed to fetch category spending data'
+        });
+    }
+};
+
+// GET /api/payments/analytics/time-series
+export const getTimeSeriesSpending = async (req: Request, res: Response) => {
+    //@ts-ignore
+    const { user } = req;
+    const { startDate, endDate, granularity } = req.query;
+
+    try {
+        const options = {
+            userId: user.id,
+            startDate: startDate ? new Date(startDate as string) : undefined,
+            endDate: endDate ? new Date(endDate as string) : undefined,
+            granularity: granularity as 'day' | 'week' | 'month' | undefined,
+        };
+
+        // Validate dates and granularity
+         if (options.startDate && isNaN(options.startDate.getTime())) {
+            throw new Error("Invalid startDate parameter");
+        }
+        if (options.endDate && isNaN(options.endDate.getTime())) {
+            throw new Error("Invalid endDate parameter");
+        }
+        if (options.granularity && !['day', 'week', 'month'].includes(options.granularity)) {
+             throw new Error("Invalid granularity parameter. Use 'day', 'week', or 'month'.");
+        }
+
+        //@ts-ignore
+        const result = await paymentService.getSpendingOverTime(options);
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    } catch (error: any) {
+        console.error("Get Time Series Spending Error:", error);
+        res.status(500).json({
+            success: false,
+            message: error.message || 'Failed to fetch time series spending data'
+        });
+    }
+};
+
+// GET /api/payments/analytics/vault-breakdown
+export const getVaultSpendingBreakdown = async (req: Request, res: Response) => {
+    //@ts-ignore
+    const { user } = req;
+    const { startDate, endDate } = req.query;
+
+    try {
+        const options = {
+            userId: user.id,
+            startDate: startDate ? new Date(startDate as string) : undefined,
+            endDate: endDate ? new Date(endDate as string) : undefined,
+        };
+         // Validate dates
+        if (options.startDate && isNaN(options.startDate.getTime())) {
+            throw new Error("Invalid startDate parameter");
+        }
+        if (options.endDate && isNaN(options.endDate.getTime())) {
+            throw new Error("Invalid endDate parameter");
+        }
+
+        //@ts-ignore
+        const result = await paymentService.getSpendingByVault(options);
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    } catch (error: any) {
+        console.error("Get Vault Spending Breakdown Error:", error);
+        res.status(500).json({
+            success: false,
+            message: error.message || 'Failed to fetch vault spending breakdown'
+        });
+    }
+};
