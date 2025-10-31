@@ -56,13 +56,13 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-700 via-red-900 to-slate-950 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            <span className="text-blue-600">Vault</span>Pay
+          <h1 className="text-4xl font-bold text-red-950 mb-2">
+            <span className="text-white">Vault</span>Pay
           </h1>
-          <p className="text-gray-600">Create your account and start managing money smartly</p>
+          <p className="text-white">Create your account and start managing money smartly</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8">
@@ -86,7 +86,7 @@ export default function RegisterPage() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition"
                   placeholder="John Doe"
                   required
                 />
@@ -104,7 +104,7 @@ export default function RegisterPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition"
                   placeholder="john.doe@example.com"
                   required
                 />
@@ -122,7 +122,7 @@ export default function RegisterPage() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition"
                   placeholder="+919876543210"
                   required
                 />
@@ -141,7 +141,7 @@ export default function RegisterPage() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition"
                   placeholder="••••••••"
                   required
                 />
@@ -162,7 +162,7 @@ export default function RegisterPage() {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition"
                   placeholder="••••••••"
                   required
                 />
@@ -179,13 +179,13 @@ export default function RegisterPage() {
                   name="pin"
                   value={formData.pin}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition"
                   placeholder="••••••••"
                   required
                 />
               </div>
             </div>
-            <button
+            <button className='bg-gradient-to-r from-slate-800 to-red-900 hover:shadow-2xl text-white p-3 rounded-xl  w-full cursor-pointer'
               type="submit"
               disabled={loading}>
                 {loading?(<><Loader2 /></>):("Register")}
@@ -193,21 +193,10 @@ export default function RegisterPage() {
         </form>
          <p className="text-center text-gray-600 mt-6">
         Already have an account?{' '}
-        <Link to="/login" className="text-blue-600 font-semibold hover:text-blue-700">
+        <Link to="/login" className="text-red-900 font-semibold hover:text-red-950">
           Login here
         </Link>
       </p>
-
-      <div className="mt-4 text-center">
-        <a
-          href="http://localhost:3001"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-blue-600 hover:text-blue-700"
-        >
-          ← Back to Landing Page
-        </a>
-      </div>
     </div>
   </div>
 </div>

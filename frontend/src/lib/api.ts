@@ -127,6 +127,22 @@ export const paymentAPI={
     getVaultAnalytics:async(vaultId:string)=>{
         const response=await axios.get(`${API_URL}/payments/analytics/vaults/${vaultId}`,{withCredentials:true})
         return response.data;
-    }
+    },
+    getAiInsights:async()=>{
+        const response=await axios.get(`${API_URL}/insights`,{withCredentials:true})
+        return response.data;
+    },
+    getCategoryAnalytics: async (params?: { startDate?: string; endDate?: string; }) => {
+        const response = await axios.get(`${API_URL}/payments/analytics/category`, { params, withCredentials: true });
+        return response.data;
+    },
+    getTimeSeriesAnalytics: async (params?: { startDate?: string; endDate?: string; granularity?: string; }) => {
+         const response = await axios.get(`${API_URL}/payments/analytics/time-series`, { params, withCredentials: true });
+        return response.data;
+    },
+    getVaultBreakdownAnalytics: async (params?: { startDate?: string; endDate?: string; }) => {
+         const response = await axios.get(`${API_URL}/payments/analytics/vault-breakdown`, { params, withCredentials: true });
+        return response.data;
+    },
 }
 

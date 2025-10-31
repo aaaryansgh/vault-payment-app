@@ -45,7 +45,7 @@ export function AuthProvider({children}:{children:React.ReactNode}){
             // Check if user has bank accounts
             try{
                 const bankAccounts=await bankAccountAPI.getAll();
-                setHasBankAccount(bankAccounts.data.bankAccounts.length > 0);
+                setHasBankAccount(bankAccounts.data.accounts.length > 0);
             }catch(err){
                 console.log("Failed to fetch bank accounts:",err);
                 setHasBankAccount(false);
@@ -62,23 +62,18 @@ export function AuthProvider({children}:{children:React.ReactNode}){
             const response=await authAPI.login({email,passwordHash});
             const {user}=response.data;
             setUser(user);
-            console.log(user);
-            
-            // Check if user has bank accounts
             try{
                 const bankAccounts=await bankAccountAPI.getAll();
-                const hasAccounts=bankAccounts.data.bankAccounts.length > 0;
+                const hasAccounts=bankAccounts.data.accounts.length > 0;
                 setHasBankAccount(hasAccounts);
-                
-                // Redirect based on bank account status
                 if(hasAccounts){
                     navigate("/dashboard");
                 }else{
                     navigate("/link-bank-account");
                 }
             }catch(err){
-                console.log("Failed to fetch bank accounts:",err);
-                navigate("/link-bank-account");
+                throw new Error("Invalid credentials");
+                console.log(err);
             }
         }catch(err){
             console.log(err);

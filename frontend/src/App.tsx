@@ -10,8 +10,7 @@ import TransactionsPage from "./pages/TransactionPage";
 import BankAccountLinkingPage from "./pages/BankAccountLinkingPage";
 import Loader from "./utils/loader";
 import LandingPage from "./pages/LandingPage";
-
-
+import AnalyticsPage from "./pages/AnalyticsPage";
 
 function ProtectedRoute({children}:{children:React.ReactNode}){
   const{isAuthenticated,loading}=useAuth();
@@ -48,6 +47,7 @@ function App() {
       <Route path="/vaults" element={<ProtectedRoute><VaultPage/></ProtectedRoute>} />
       <Route path="/payments" element={<ProtectedRoute><PaymentPage/></ProtectedRoute>} />
       <Route path="/transactions" element={<ProtectedRoute><TransactionsPage/></ProtectedRoute>} />
+      <Route path="/analytics" element={<ProtectedRoute><AnalyticsPage /></ProtectedRoute>} />
       <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>

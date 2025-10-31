@@ -160,18 +160,11 @@ export default function TransactionsPage() {
       <nav className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-8">
-            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/dashboard">
-              Dashboard
-            </Link>
-            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/vaults">
-              Vaults
-            </Link>
-            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/payments">
-              Payments
-            </Link>
-            <Link className="py-4 border-b-2 border-red-900 text-red-900 font-medium" to="/transactions">
-              Transactions
-            </Link>
+            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/dashboard">Dashboard</Link>
+            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/vaults">Vaults</Link>
+            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/link-bank-account">Bank Account</Link>
+            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/payments">Payments</Link>
+            <Link className="py-4 border-b-2 border-red-900 text-red-900 font-medium" to="/transactions">Transactions</Link>
           </div>
         </div>
       </nav>

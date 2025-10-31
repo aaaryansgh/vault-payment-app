@@ -11,10 +11,9 @@ A modern full-stack payment application with an innovative vault system that hel
 - 📱 Responsive: Works perfectly on mobile and desktop
 - 🛠️ Tech Stack
 ## Frontend
-- Framework: Next.js 14 (App Router)
+- Framework: React.js
 - Language: TypeScript
 - Styling: Tailwind CSS
-- State Management: Zustand
 - HTTP Client: Axios
 - Icons: Lucide React
 ## Backend

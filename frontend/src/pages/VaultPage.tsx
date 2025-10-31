@@ -107,6 +107,7 @@ export default function VaultsPage(){
                     <div className="flex gap-8">
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900 font-medium" to="/dashboard">Dashboard</Link>
                         <Link className="py-4 border-b-2 border-red-900 text-red-900" to="/vaults">Vaults</Link>
+                        <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/link-bank-account">Bank Account</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/payments">Payments</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/transactions">Transactions</Link>
                     </div>

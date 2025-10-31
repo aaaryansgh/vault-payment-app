@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { paymentAPI, vaultAPI } from "../lib/api"
-
 import { ArrowUpRight, CreditCard, TrendingUp, Wallet } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Loader from "../utils/loader";
-
+import Insights from "../components/AI/insight";
 export default function DashboardPage(){
     const [loading,setLoading]=useState(true);
     const [summary,setSummary]=useState<any>(null);
@@ -43,6 +42,7 @@ export default function DashboardPage(){
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/link-bank-account">Bank Account</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/payments">Payments</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/transactions">Transactions</Link>
+                        <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/analytics">Analytics</Link>
                     </div>
                 </div>
             </nav>
@@ -50,16 +50,16 @@ export default function DashboardPage(){
             <main>
                 {/*summary cards*/}
                 <div className="grid grid-cols-1 mx-2 mt-2 md:grid-cols-3 gap-6 mb-8">
-                    <div className="bg-blue-100 p-6 shadow-sm hover:shadow-2xl hover:shadow-blue-100">
+                    <div className="bg-blue-50 p-6 shadow-sm hover:shadow-2xl hover:shadow-blue-100">
                         <div className="flex items-center justify-between mb-4">
-                            <div className="w-12 h-12 bg-blue-300 rounded-lg flex items-center justify-center">
+                            <div className="w-12 h-12 bg-blue-200 rounded-lg flex items-center justify-center">
                                 <Wallet className="w-6 h-6 text-blue-600" />
                             </div>
                             <span className="text-sm text-gray-500">Total Allocated</span>
                         </div>
                         <p className="text-3xl font-bold text-gray-900">{summary?.summary.totalAllocated.toLocaleString()||"0"}</p>
                     </div>
-                    <div className="bg-green-100 p-6 shadow-sm hover:shadow-2xl hover:shadow-green-100">
+                    <div className="bg-green-50 p-6 shadow-sm hover:shadow-2xl hover:shadow-green-100">
                         <div className="flex items-center justify-between mb-4">
                             <div className="w-12 h-12 bg-green-300 rounded-lg flex items-center justify-center">
                                 <CreditCard />
@@ -68,7 +68,7 @@ export default function DashboardPage(){
                         </div>
                         <p className="text-3xl font-bold text-gray-900">{summary?.summary.totalSpent.toLocaleString()||"0"}</p>
                     </div>
-                    <div className="bg-purple-100 p-6 shadow-sm hover:shadow-2xl hover:shadow-purple-100">
+                    <div className="bg-purple-50 p-6 shadow-sm hover:shadow-2xl hover:shadow-purple-100">
                         <div className="flex items-center justify-between mb-4">
                             <div className="w-12 h-12 bg-purple-300 rounded-lg flex items-center justify-center">
                                 <TrendingUp className="w-6 h-6 text-purple-600" />
@@ -77,6 +77,9 @@ export default function DashboardPage(){
                         </div>
                         <p className="text-3xl font-bold text-gray-900">{summary?.summary.totalRemaining.toLocaleString()||"0"}</p>
                     </div>
+                </div>
+                <div className="mb-8">
+                  <Insights />
                 </div>
                 {/*vaults overview */}
                 <div className="bg-white shadow-sm p-6 mb-8">

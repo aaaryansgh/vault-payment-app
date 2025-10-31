@@ -147,7 +147,7 @@ export default function PaymentPage() {
         {fetchingVaults ? (
           <div className="bg-white rounded-2xl shadow-lg p-12">
             <div className="flex flex-col items-center justify-center">
-              <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+              <div className="w-16 h-16 border-4 border-red-900 border-t-transparent rounded-full animate-spin mb-4"></div>
               <p className="text-gray-600 font-medium">Loading your vaults...</p>
             </div>
           </div>

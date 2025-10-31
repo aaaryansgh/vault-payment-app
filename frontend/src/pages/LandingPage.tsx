@@ -83,34 +83,34 @@ export default function VaultPayLanding() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-700 via-red-900 to-slate-900 text-white overflow-hidden">
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-950 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-red-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-2000"></div>
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900/95 backdrop-blur-lg shadow-2xl' : 'bg-transparent'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-800/95 backdrop-blur-lg shadow-2xl' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-gradient-to-br from-slate-950 to-red-900 rounded-xl flex items-center justify-center shadow-lg">
                 <Wallet className="w-7 h-7" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-slate-950 to-red-950 bg-clip-text text-transparent">
                 VaultPay
               </span>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="#features" className="hover:text-blue-400 transition-colors">Features</Link>
-              <Link to="#how-it-works" className="hover:text-blue-400 transition-colors">How It Works</Link>
-              <Link to="#pricing" className="hover:text-blue-400 transition-colors">Pricing</Link>
-              <Link to="http://localhost:5173/login" className="hover:text-blue-400 transition-colors">Login</Link>
-              <Link to="http://localhost:5173/register" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all transform hover:scale-105">
+              <Link to="#features" className="hover:text-red-300 transition-colors">Features</Link>
+              <Link to="#how-it-works" className="hover:text-red-300 transition-colors">How It Works</Link>
+              <Link to="#pricing" className="hover:text-red-300 transition-colors">Pricing</Link>
+              <Link to="http://localhost:5173/login" className="hover:text-red-300 transition-colors">Login</Link>
+              <Link to="http://localhost:5173/register" className="px-6 py-3 bg-gradient-to-r from-slate-700 to-red-950 rounded-full font-semibold hover:shadow-2xl hover:shadow-slate-900 transition-all transform hover:scale-105">
                 Get Started
               </Link>
             </div>
@@ -143,14 +143,14 @@ export default function VaultPayLanding() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-500/20 rounded-full border border-blue-500/30">
-                <Zap className="w-4 h-4 text-blue-400" />
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-red-500/20 rounded-full border border-red-500/30">
+                <Zap className="w-4 h-4 text-red-400" />
                 <span className="text-sm font-medium">Smart Money Management</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Organize Your
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"> Money</span>
+                <span className="bg-gradient-to-r from-slate-900 via-red-900 to-red-950 bg-clip-text text-transparent"> Money</span>
                 <br />Into Smart Vaults
               </h1>
               
@@ -160,7 +160,7 @@ export default function VaultPayLanding() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="http://localhost:3000/register" className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-lg flex items-center justify-center hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105">
+                <a href="http://localhost:3000/register" className="group px-8 py-4 bg-gradient-to-r from-gray-900 to-red-900 rounded-full font-semibold text-lg flex items-center justify-center hover:shadow-2xl hover:shadow-slate-900 transition-all transform hover:scale-105">
                   Start Free Trial
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -171,22 +171,22 @@ export default function VaultPayLanding() {
 
               <div className="flex items-center space-x-8 pt-4">
                 <div>
-                  <div className="text-3xl font-bold text-blue-400">10K+</div>
+                  <div className="text-3xl font-bold text-red-900">10K+</div>
                   <div className="text-sm text-gray-400">Active Users</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-purple-400">₹50Cr+</div>
+                  <div className="text-3xl font-bold text-slate-900">₹50Cr+</div>
                   <div className="text-sm text-gray-400">Managed</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-pink-400">4.9★</div>
+                  <div className="text-3xl font-bold text-white">4.9★</div>
                   <div className="text-sm text-gray-400">Rating</div>
                 </div>
               </div>
             </div>
 
             <div className="relative">
-              <div className="relative z-10 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 shadow-2xl">
+              <div className="relative z-10 bg-gradient-to-br from-slate-800/80 to-red-900/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 shadow-2xl">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-2xl font-bold">My Vaults</h3>
@@ -205,14 +205,14 @@ export default function VaultPayLanding() {
                         </div>
                         <ChevronRight className="w-5 h-5 text-gray-400" />
                       </div>
-                      <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style={{ width: `${60 + idx * 5}%` }}></div>
+                      <div className="w-full bg-slate-500 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-slate-700 to-red-950 h-2 rounded-full" style={{ width: `${60 + idx * 5}%` }}></div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full filter blur-3xl opacity-20"></div>
+              <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-slate-700 to-red-900 rounded-full filter blur-3xl opacity-20"></div>
             </div>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function VaultPayLanding() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Why Choose <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">VaultPay</span>?
+              Why Choose <span className="bg-gradient-to-r from-slate-900 to-slate-950 bg-clip-text text-transparent">VaultPay</span>?
             </h2>
             <p className="text-xl text-gray-300">Powerful features designed for smart money management</p>
           </div>
@@ -232,7 +232,7 @@ export default function VaultPayLanding() {
             {features.map((feature, idx) => (
               <div 
                 key={idx}
-                className={`group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all cursor-pointer transform hover:scale-105 ${activeFeature === idx ? 'ring-2 ring-purple-500' : ''}`}
+                className={`group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-red-900/50 transition-all cursor-pointer transform hover:scale-105 ${activeFeature === idx ? 'ring-2 ring-slate-500' : ''}`}
               >
                 <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   {feature.icon}
@@ -260,9 +260,9 @@ export default function VaultPayLanding() {
               { step: "03", title: "Create Vaults", desc: "Allocate money into smart vaults and start spending", icon: <Wallet className="w-8 h-8" /> }
             ].map((item, idx) => (
               <div key={idx} className="relative">
-                <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-purple-500/50 transition-all">
-                  <div className="text-6xl font-bold text-purple-500/20 mb-4">{item.step}</div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-red-500/50 transition-all">
+                  <div className="text-6xl font-bold text-red-500/20 mb-4">{item.step}</div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-slate-900 to-red-900 rounded-xl flex items-center justify-center mb-4">
                     {item.icon}
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
@@ -270,7 +270,7 @@ export default function VaultPayLanding() {
                 </div>
                 {idx < 2 && (
                   <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ChevronRight className="w-8 h-8 text-purple-500" />
+                    <ChevronRight className="w-8 h-8 text-red-900" />
                   </div>
                 )}
               </div>
@@ -289,7 +289,7 @@ export default function VaultPayLanding() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all">
+              <div key={idx} className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-slate-500/50 transition-all">
                 <div className="flex items-center space-x-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <span key={i} className="text-yellow-400">★</span>
@@ -297,7 +297,7 @@ export default function VaultPayLanding() {
                 </div>
                 <p className="text-gray-300 mb-6">"{testimonial.content}"</p>
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center font-bold">
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-red-900 rounded-full flex items-center justify-center font-bold">
                     {testimonial.image}
                   </div>
                   <div>
@@ -314,11 +314,11 @@ export default function VaultPayLanding() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-12 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-slate-900 to-red-900 rounded-3xl p-12 relative overflow-hidden">
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to Take Control?</h2>
               <p className="text-xl mb-8 text-blue-100">Join thousands managing their money smarter with VaultPay</p>
-              <Link to="http://localhost:5173/register" className="inline-flex items-center px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+              <Link to="http://localhost:5173/register" className="inline-flex items-center px-8 py-4 bg-white text-red-900 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
                 Get Started Free
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
@@ -335,7 +335,7 @@ export default function VaultPayLanding() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-slate-900 to-red-900 rounded-xl flex items-center justify-center">
                   <Wallet className="w-6 h-6" />
                 </div>
                 <span className="text-xl font-bold">VaultPay</span>
@@ -368,7 +368,7 @@ export default function VaultPayLanding() {
             </div>
           </div>
           <div className="border-t border-slate-800 mt-12 pt-8 text-center text-gray-400">
-            <p>© 2025 VaultPay. Built by <a href="https://github.com/aaaryansgh" className="text-purple-400 hover:text-purple-300">Aryan Singh</a>. All rights reserved.</p>
+            <p>© 2025 VaultPay. Built by <a href="https://github.com/aaaryansgh" className="text-red-700 hover:text-red-300">Aryan Singh</a>. All rights reserved.</p>
           </div>
         </div>
       </footer>
