@@ -38,6 +38,10 @@ app.use((req,res)=>{
     })
 })
 
+app.get("/",(req,res)=>{
+   res.send("Api is running")
+})
+
 app.listen(PORT, async () => {
   console.log(`🚀 Server is running on Port:${PORT}`);
   console.log(`⏰ Started at: ${new Date().toLocaleString()}`);

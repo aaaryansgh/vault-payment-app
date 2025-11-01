@@ -91,6 +91,7 @@ export const vaultAPI={
         const response=await axios.post(`${API_URL}/vaults/create-vault`,data,{withCredentials:true})
         return response.data;
     },
+    
     update:async(id:string,data:any)=>{
         const response=await axios.patch(`${API_URL}/vaults/update/${id}`,data,{withCredentials:true})
         return response.data;
