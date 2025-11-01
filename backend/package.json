@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -b",
-    "start": "nodemon dist/server.js",
+    "start": "node dist/server.js",
     "dev": "npm run build&& npm run start",
-    "prisma:studio": "npx prisma studio"
+    "prisma:studio": "npx prisma studio",
+    "postinstall": "prisma generate"
   },
   "keywords": [
     "payment",

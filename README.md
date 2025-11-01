@@ -73,15 +73,8 @@ npm install
 cp .env.local.example .env.local
 npm run dev
 Access the application
-Frontend: http://localhost:3000
+Frontend: http://localhost:5173
 Backend API: http://localhost:5000
-📈 Development Progress
-- Day 1: Project setup and structure ✅
-- Day 2: Database schema and setup
-- Day 3: User authentication backend
-- Day 4: Authentication middleware
-- Day 5: Frontend authentication UI
- ... (more coming)
  
 🎯 Unique Selling Point: Vault System
 Unlike traditional payment apps, VaultPay introduces a vault-based money management system:
@@ -106,10 +99,10 @@ Example: User has ₹50,000:
 - Helmet security headers
 
 📝 API Documentation
-- POST   /api/auth/signup            - Register new user
-- POST   /api/auth/login             - Login
-- GET    /api/auth/me                - Get current user
-- POST   /api/auth/logout            - Logout
+- POST   /api/auth/signup                   - Register new user
+- POST   /api/auth/login                    - Login
+- GET    /api/auth/me                       - Get current user
+- POST   /api/auth/logout                   - Logout
 - POST   /api/bank-accounts                 - Link bank account
 - GET    /api/bank-accounts                 - Get all accounts
 - GET    /api/bank-accounts/primary         - Get primary account
@@ -118,6 +111,18 @@ Example: User has ₹50,000:
 - PATCH  /api/bank-accounts/:id/set-primary - Set as primary
 - PATCH  /api/bank-accounts/:id/balance     - Update balance
 - DELETE /api/bank-accounts/:id             - Unlink account
+- POST /api/vaults/create-vault             - Create vault
+- GET  /api/vaults//user-vaults             - get all vaults of user
+- GET  /api/vaults/:id                      - get vault by id
+- GET /api/vaults/summary                   - get summary of vault        
+- PATCH /api/vaults/update/:id              - Update vault info
+- DELETE /api/vaults/delete/:id             - Delete vault
+- POST  /api/payments/makePayment           - Make payment
+- GET api/payments/transactions             - Get transactions
+- GET api/payments/transaction/:transactionId - Get transactions by id
+- GET api/payments/spending-summary         - Get spending summary of user
+- GET api/payments/analytics/vaults/:vaultId  -Get analytics of vault
+
 🤝 Contributing
 This is a personal portfolio project, but suggestions are welcome!
 

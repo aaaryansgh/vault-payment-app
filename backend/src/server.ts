@@ -15,11 +15,9 @@ import insightRoute from "./routes/insightRoute.js"
 
 const app=express();
 
-const PORT=5000;
-
-
+const PORT=process.env.PORT;
 app.use(cors({
-  origin:'http://localhost:5173',
+  origin:process.env.FRONTEND_URL,
   credentials: true
 }));
 app.use(cookieParser())
