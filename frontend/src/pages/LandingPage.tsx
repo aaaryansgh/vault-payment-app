@@ -109,8 +109,8 @@ export default function VaultPayLanding() {
               <Link to="#features" className="hover:text-red-300 transition-colors">Features</Link>
               <Link to="#how-it-works" className="hover:text-red-300 transition-colors">How It Works</Link>
               <Link to="#pricing" className="hover:text-red-300 transition-colors">Pricing</Link>
-              <Link to="http://localhost:5173/login" className="hover:text-red-300 transition-colors">Login</Link>
-              <Link to="http://localhost:5173/register" className="px-6 py-3 bg-gradient-to-r from-slate-700 to-red-950 rounded-full font-semibold hover:shadow-2xl hover:shadow-slate-900 transition-all transform hover:scale-105">
+              <Link to="/login" className="hover:text-red-300 transition-colors">Login</Link>
+              <Link to="/register" className="px-6 py-3 bg-gradient-to-r from-slate-700 to-red-950 rounded-full font-semibold hover:shadow-2xl hover:shadow-slate-900 transition-all transform hover:scale-105">
                 Get Started
               </Link>
             </div>
@@ -129,8 +129,8 @@ export default function VaultPayLanding() {
               <Link to="#features" className="block hover:text-blue-400 transition-colors">Features</Link>
               <Link to="#how-it-works" className="block hover:text-blue-400 transition-colors">How It Works</Link>
               <Link to="#pricing" className="block hover:text-blue-400 transition-colors">Pricing</Link>
-              <Link to="http://localhost:5173/login" className="block hover:text-blue-400 transition-colors">Login</Link>
-              <Link to="http://localhost:5173/register" className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold">
+              <Link to="/login" className="block hover:text-blue-400 transition-colors">Login</Link>
+              <Link to="/register" className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold">
                 Get Started
               </Link>
             </div>
@@ -160,7 +160,7 @@ export default function VaultPayLanding() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="http://localhost:3000/register" className="group px-8 py-4 bg-gradient-to-r from-gray-900 to-red-900 rounded-full font-semibold text-lg flex items-center justify-center hover:shadow-2xl hover:shadow-slate-900 transition-all transform hover:scale-105">
+                <a href="/register" className="group px-8 py-4 bg-gradient-to-r from-gray-900 to-red-900 rounded-full font-semibold text-lg flex items-center justify-center hover:shadow-2xl hover:shadow-slate-900 transition-all transform hover:scale-105">
                   Start Free Trial
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -318,7 +318,7 @@ export default function VaultPayLanding() {
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to Take Control?</h2>
               <p className="text-xl mb-8 text-blue-100">Join thousands managing their money smarter with VaultPay</p>
-              <Link to="http://localhost:5173/register" className="inline-flex items-center px-8 py-4 bg-white text-red-900 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+              <Link to="/register" className="inline-flex items-center px-8 py-4 bg-white text-red-900 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
                 Get Started Free
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
