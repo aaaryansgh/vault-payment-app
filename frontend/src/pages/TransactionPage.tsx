@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, Search, Filter, Calendar, Eye, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/layout/Header';
-import { vaultAPI } from '../lib/api';
+import { API_URL, vaultAPI } from '../lib/api';
 import axios from 'axios';
 import type { Vault } from '../types/vault';
 
@@ -83,7 +83,7 @@ export default function TransactionsPage() {
       params.append('offset', pagination.offset.toString());
 
       const response = await axios.get(
-        `http://localhost:5000/api/payments/transactions?${params.toString()}`,
+        `${API_URL}/payments/transactions?${params.toString()}`,
         { withCredentials: true }
       );
 
