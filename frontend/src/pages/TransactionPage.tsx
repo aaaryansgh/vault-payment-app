@@ -165,6 +165,7 @@ export default function TransactionsPage() {
             <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/link-bank-account">Bank Account</Link>
             <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/payments">Payments</Link>
             <Link className="py-4 border-b-2 border-red-900 text-red-900 font-medium" to="/transactions">Transactions</Link>
+            <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/analytics">Analytics</Link>
           </div>
         </div>
       </nav>
@@ -196,7 +197,7 @@ export default function TransactionsPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search by ref, description, phone..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none"
                 />
               </div>
             </div>
@@ -219,7 +220,7 @@ export default function TransactionsPage() {
                 <select
                   value={selectedVault}
                   onChange={(e) => setSelectedVault(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 outline-none"
                 >
                   <option value="">All Vaults</option>
                   {vaults.map((vault) => (
@@ -235,7 +236,7 @@ export default function TransactionsPage() {
                 <select
                   value={selectedStatus}
                   onChange={(e) => setSelectedStatus(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 outline-none"
                 >
                   <option value="">All Status</option>
                   <option value="completed">Completed</option>
@@ -250,7 +251,7 @@ export default function TransactionsPage() {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 outline-none"
                 />
               </div>
 
@@ -260,14 +261,14 @@ export default function TransactionsPage() {
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 outline-none"
                 />
               </div>
 
               <div className="md:col-span-4 flex gap-3">
                 <button
                   onClick={handleApplyFilters}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                  className="px-6 py-2 bg-red-900 text-white rounded-lg hover:bg-red-950 transition"
                 >
                   Apply Filters
                 </button>
@@ -297,7 +298,7 @@ export default function TransactionsPage() {
             <p className="text-gray-600 mb-6">You haven't made any transactions yet or no results match your filters.</p>
             <Link
               to="/payments"
-              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="inline-block px-6 py-3 bg-red-900 text-white rounded-lg font-semibold hover:bg-red-950 transition"
             >
               Make a Payment
             </Link>
@@ -471,7 +472,7 @@ export default function TransactionsPage() {
 
               <button
                 onClick={() => setSelectedTransaction(null)}
-                className="w-full mt-6 px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+                className="w-full mt-6 px-4 py-3 bg-red-900 text-white rounded-lg font-semibold hover:bg-red-950 transition"
               >
                 Close
               </button>

@@ -110,6 +110,7 @@ export default function VaultsPage(){
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/link-bank-account">Bank Account</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/payments">Payments</Link>
                         <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/transactions">Transactions</Link>
+                        <Link className="py-4 border-b-2 border-transparent text-gray-600 hover:text-gray-900" to="/analytics">Analytics</Link>
                     </div>
                 </div>
             </nav>
